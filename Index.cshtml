@@ -1,72 +1,44 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-<style>
-    /* Fondo azulado suave */
-    body {
-        background-color: #e3f2fd;
-    }
-
-    .calc-card {
-        background-color: #ffffff;
-        border-radius: 15px;
-        border: 1px solid #bbdefb;
-    }
-
-    .btn-sumar {
-        background-color: #0d6efd;
-        color: white;
-        transition: 0.3s;
-        border: none;
-    }
-
-        .btn-sumar:hover {
-            background-color: #0b5ed7;
-            color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-</style>
-
-<div class="container py-5">
-    <div class="text-center mb-4">
-        <h2 class="display-5 text-primary">Operación: Suma</h2>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card calc-card shadow-sm p-4">
+<div class="text-center">
+    <h2 class="text-success">Operación: Multiplicación</h2>
+    <p class="text-muted" Integrante: [Nuria]</p>
+    <hr />
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow">
+            <div class="card-body">
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Primer Número:</label>
-                        <input type="number" step="any" name="num1" class="form-control border-info"
-                               placeholder="Ej: 15" value="@ViewBag.Num1" required />
+                        <label class="form-label">Multiplicando (Factor 1):</label>
+                        <input type="number" step="any" name="factor1" class="form-control"
+                               placeholder="Ej: 5" value="@ViewBag.Factor1" required />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Segundo Número:</label>
-                        <input type="number" step="any" name="num2" class="form-control border-info"
-                               placeholder="Ej: 25" value="@ViewBag.Num2" required />
+                        <label class="form-label">Multiplicador (Factor 2):</label>
+                        <input type="number" step="any" name="factor2" class="form-control"
+                               placeholder="Ej: 10" value="@ViewBag.Factor2" required />
                     </div>
 
-                    <button type="submit" class="btn btn-sumar w-100 fw-bold shadow-sm">
-                        Realizar Suma
-                    </button>
+                    <button type="submit" class="btn btn-success w-100">Calcular Producto</button>
                 </form>
 
                 @if (ViewBag.Resultado != null)
                 {
-                    <div class="mt-4 p-3 bg-primary bg-opacity-10 border border-primary rounded text-center">
-                        <span class="text-muted d-block small">Resultado de la suma:</span>
-                        <h2 class="mb-0 text-primary"><strong>@ViewBag.Resultado</strong></h2>
+                    <div class="mt-4 p-3 bg-light border rounded text-center">
+                        <h4 class="mb-0">
+                            @ViewBag.Factor1 × @ViewBag.Factor2 = <strong>@ViewBag.Resultado</strong>
+                        </h4>
                     </div>
                 }
             </div>
+        </div>
 
-            <div class="mt-3 text-center">
-                <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-muted">
-                    Volver al Inicio
-                </a>
-            </div>
+        <div class="mt-3 text-center">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-link">Volver al Inicio</a>
         </div>
     </div>
 </div>
