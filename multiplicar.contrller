@@ -1,0 +1,25 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ARNY24022026.AppMVC.Controllers
+{
+    public class MultiplicacionController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+        // POST: Recibe los datos y realiza el cálculo
+        [HttpPost]
+        public IActionResult Index(double factor1, double factor2)
+        {
+            double resultado = factor1 * factor2;
+
+            // Pasamos los datos a la vista usando ViewBag
+            ViewBag.Resultado = resultado;
+            ViewBag.Factor1 = factor1;
+            ViewBag.Factor2 = factor2;
+
+            return View();
+        }
+    }
+}
